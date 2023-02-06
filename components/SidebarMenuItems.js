@@ -1,4 +1,3 @@
-import React from 'react'
 
 const SidebarMenuItems = ({ text, Icon, active }) => {
     return (
