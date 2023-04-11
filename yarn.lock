@@ -2060,6 +2060,11 @@
   "resolved" "https://repo.huaweicloud.com/repository/npm/minimist/-/minimist-1.2.7.tgz"
   "version" "1.2.7"
 
+"moment@^2.29.0", "moment@^2.29.4":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
+
 "ms@^2.1.1":
   "integrity" "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/ms/-/ms-2.1.3.tgz"
@@ -2413,7 +2418,7 @@
   "resolved" "https://repo.huaweicloud.com/repository/npm/pretty-format/-/pretty-format-3.8.0.tgz"
   "version" "3.8.0"
 
-"prop-types@^15.8.1":
+"prop-types@^15.7.0", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -2487,7 +2492,12 @@
   "resolved" "https://repo.huaweicloud.com/repository/npm/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^17.0.2 || ^18", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
+"react-moment@^1.1.3":
+  "integrity" "sha512-8EPvlUL8u6EknPp1ISF5MQ3wx2OHJVXIP/iZc4wRh3iV3XozftZERDv9ANZeAtMlhNNQHdFoqcZHFUkBSTONfA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/react-moment/-/react-moment-1.1.3.tgz"
+  "version" "1.1.3"
+
+"react@^16.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
