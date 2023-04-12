@@ -8,14 +8,16 @@ import { useEffect, useState } from "react";
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
 import { deleteObject, ref } from "firebase/storage";
 import { useRecoilState } from "recoil";
-import { modalState } from "../atom/modalAtom";
+import { modalState, postIdState } from "../atom/modalAtom";
+
 
 const Post = ({ post }) => {
 
     const { data: session } = useSession();
     const [likes, setLikes] = useState([]);
     const [hasLiked, setHasLiked] = useState(false);
-    const [open, setOpen] = useRecoilState(modalState)
+    const [open, setOpen] = useRecoilState(modalState);
+    const [postId, setPostId] = useRecoilState(postIdState);
 
     useEffect(() => {
         const unsubscribe = onSnapshot(
@@ -44,9 +46,9 @@ const Post = ({ post }) => {
     }
 
     async function deletePost() {
-        if(window.confirm("Are you sure you want to delete this post?")){
+        if (window.confirm("Are you sure you want to delete this post?")) {
             deleteDoc(doc(db, "posts", post.id))
-            if(post.data().image) {
+            if (post.data().image) {
                 deleteObject(ref(storage, `posts/${post.id}/image`))
             }
         }
@@ -56,7 +58,7 @@ const Post = ({ post }) => {
     return (
         <div className="flex p-3 cursor-pointer border-b border-gray-200">
             {/* User Image */}
-            <img className="h-12 w-12 rounded-full mr-4" src={post?.data()?.userImage} alt="user-image" />
+            <img className="h-11 w-11 rounded-full mr-4" src={post?.data()?.userImage} alt="user-image" />
             {/* Right Side */}
             <div className="flex-1">
                 {/* Header */}
@@ -83,7 +85,15 @@ const Post = ({ post }) => {
                 {/* Icons */}
 
                 <div className="flex justify-between text-gray-500 p-2">
-                    <ChatIcon onClick={()=>setOpen(!open)} className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
+                    <ChatIcon onClick={() => {
+                        if (!session) {
+                            signIn();
+                        } else {
+                            setPostId(post.id)
+                            setOpen(!open);
+                        }
+                    }}
+                        className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
                     {session?.user.uid === post?.data().id && (<TrashIcon onClick={deletePost} className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100" />)}
                     <div className="flex items-center">
                         {hasLiked ? (
