@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "firebase": "^9.17.1",
+    "framer-motion": "^10.11.5",
     "moment": "^2.29.4",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
