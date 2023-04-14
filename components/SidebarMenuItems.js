@@ -5,7 +5,7 @@ const SidebarMenuItems = ({ text, Icon, active }) => {
             <Icon className="h-7" />
             <span className={`${active && "font-bold"} hidden xl:inline`}>{text}</span>
         </div>
-    )
+    );
 }
 
 export default SidebarMenuItems

@@ -1,32 +1,41 @@
-import { EmojiHappyIcon, PhotographIcon, XIcon } from "@heroicons/react/outline";
-import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import {
+    EmojiHappyIcon,
+    PhotographIcon,
+    XIcon,
+} from "@heroicons/react/outline";
+import {
+    addDoc,
+    collection,
+    doc,
+    serverTimestamp,
+    updateDoc,
+} from "firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import { useSession, signOut } from "next-auth/react";
-import { useRef, useState } from "react";
+
+import { useState, useRef } from "react";
 import { db, storage } from "../firebase";
-
-
-const Input = () => {
-    const { data: session } = useSession();
+import { useRecoilState } from "recoil";
+import { userState } from "../atom/userAtom";
+import { signOut, getAuth } from "firebase/auth";
+export default function Input() {
     const [input, setInput] = useState("");
-    const filePickerRef = useRef(null);
+    const [currentUser, setCurrentUser] = useRecoilState(userState);
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(false);
-
-
+    const filePickerRef = useRef(null);
+    const auth = getAuth();
 
     const sendPost = async () => {
-
         if (loading) return;
         setLoading(true);
 
         const docRef = await addDoc(collection(db, "posts"), {
-            id: session.user.uid,
+            id: currentUser.uid,
             text: input,
-            userImage: session.user.image,
+            userImg: currentUser.userImg,
             timestamp: serverTimestamp(),
-            name: session.user.name,
-            username: session.user.username,
+            name: currentUser.name,
+            username: currentUser.username,
         });
 
         const imageRef = ref(storage, `posts/${docRef.id}/image`);
@@ -40,7 +49,6 @@ const Input = () => {
             });
         }
 
-
         setInput("");
         setSelectedFile(null);
         setLoading(false);
@@ -49,29 +57,38 @@ const Input = () => {
     const addImageToPost = (e) => {
         const reader = new FileReader();
         if (e.target.files[0]) {
-            reader.readAsDataURL(e.target.files[0])
+            reader.readAsDataURL(e.target.files[0]);
         }
 
         reader.onload = (readerEvent) => {
-            setSelectedFile(readerEvent.target.result)
-        }
+            setSelectedFile(readerEvent.target.result);
+        };
+    };
+
+    function onSignOut() {
+        signOut(auth);
+        setCurrentUser(null);
     }
 
     return (
         <>
-            {session && (
-                <div className="flex border-b border-gray-200 p-3 space-x-3">
-                    <img className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95" src={session.user.image} alt="user-img" onClick={signOut} />
+            {currentUser && (
+                <div className="flex  border-b border-gray-200 p-3 space-x-3">
+                    <img
+                        onClick={onSignOut}
+                        src={currentUser?.userImg}
+                        alt="user-img"
+                        className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
+                    />
                     <div className="w-full divide-y divide-gray-200">
                         <div className="">
                             <textarea
                                 className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700"
                                 rows="2"
-                                placeholder="What's happening"
+                                placeholder="What's happening?"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                            >
-                            </textarea>
+                            ></textarea>
                         </div>
                         {selectedFile && (
                             <div className="relative">
@@ -79,7 +96,10 @@ const Input = () => {
                                     onClick={() => setSelectedFile(null)}
                                     className="border h-7 text-black absolute cursor-pointer shadow-md border-white m-1 rounded-full"
                                 />
-                                <img src={selectedFile} className={`${loading && "animate-pulse"}`} alt="" />
+                                <img
+                                    src={selectedFile}
+                                    className={`${loading && "animate-pulse"}`}
+                                />
                             </div>
                         )}
                         <div className="flex items-center justify-between pt-2.5">
@@ -114,7 +134,5 @@ const Input = () => {
                 </div>
             )}
         </>
-    )
+    );
 }
-
-export default Input
