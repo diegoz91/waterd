@@ -31,7 +31,8 @@ const CommentModal = () => {
             name: session.user.name,
             username: session.user.username,
             userImage: session.user.image,
-            timestamp: serverTimestamp()
+            timestamp: serverTimestamp(),
+            userId: session.user.uid,
         });
         setOpen(false);
         setInput("");

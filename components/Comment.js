@@ -94,7 +94,7 @@ const Comment = ({ comment, commentId, originalPostId }) => {
                         }}
                             className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
                     </div>
-                    {session?.user.uid === comment?.id && (<TrashIcon onClick={deleteComment} className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100" />)}
+                    {session?.user.uid === comment?.userId && (<TrashIcon onClick={deleteComment} className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100" />)}
                     <div className="flex items-center">
                         {hasLiked ? (
                             <HeartIconFilled
