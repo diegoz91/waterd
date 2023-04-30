@@ -19,7 +19,8 @@ import { useRecoilState } from "recoil";
 import { userState } from "../atom/userAtom";
 import { useRouter } from "next/router";
 
-export default function Sidebar() {
+
+export default function Sidebar({id}) {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useRecoilState(userState);
   const auth = getAuth();
@@ -64,7 +65,7 @@ export default function Sidebar() {
             <SidebarMenuItem text="Messages" Icon={InboxIcon} />
             <SidebarMenuItem text="Bookmarks" Icon={BookmarkIcon} />
             <SidebarMenuItem text="Lists" Icon={ClipboardIcon} />
-            <SidebarMenuItem text="Profile" Icon={UserIcon} />
+            <div onClick={() => router.push(`/profile`)}><SidebarMenuItem text="Profile" Icon={UserIcon} /></div>
             <SidebarMenuItem text="More" Icon={DotsCircleHorizontalIcon} />
           </>
         )}

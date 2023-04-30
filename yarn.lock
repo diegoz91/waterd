@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.16.3", "@babel/runtime@^7.20.7":
+"@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7":
   "integrity" "sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/@babel/runtime/-/runtime-7.20.13.tgz"
   "version" "7.20.13"
@@ -500,7 +500,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@panva/hkdf@^1.0.1":
+"@panva/hkdf@^1.0.2":
   "integrity" "sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/@panva/hkdf/-/hkdf-1.0.2.tgz"
   "version" "1.0.2"
@@ -1948,10 +1948,15 @@
   "resolved" "https://repo.huaweicloud.com/repository/npm/isexe/-/isexe-2.0.0.tgz"
   "version" "2.0.0"
 
-"jose@^4.10.0", "jose@^4.9.3":
+"jose@^4.10.0", "jose@^4.11.4":
   "integrity" "sha512-94FdcR8felat4vaTJyL/WVdtlWLlsnLMZP8v+A0Vru18K3bQ22vn7TtpVh3JlgBFNIlYOUlGqwp/MjRPOnIyCQ=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/jose/-/jose-4.11.4.tgz"
   "version" "4.11.4"
+
+"js-cookie@^3.0.1":
+  "integrity" "sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/js-cookie/-/js-cookie-3.0.1.tgz"
+  "version" "3.0.1"
 
 "js-sdsl@^4.1.4":
   "integrity" "sha512-mifzlm2+5nZ+lEcLJMoBK0/IH/bDg8XnJfd/Wq6IP+xoCjLZsTOnV2QpxlVbX9bMnkl5PdEjNtBJ9Cj1NjifhQ=="
@@ -2116,17 +2121,17 @@
   "resolved" "https://repo.huaweicloud.com/repository/npm/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next-auth@^4.19.2":
-  "integrity" "sha512-6V2YG3IJQVhgCAH7mvT3yopTW92gMdUrcwGX7NQ0dCreT/+axGua/JmVdarjec0C/oJukKpIYRgjMlV+L5ZQOQ=="
-  "resolved" "https://repo.huaweicloud.com/repository/npm/next-auth/-/next-auth-4.19.2.tgz"
-  "version" "4.19.2"
+"next-auth@^4.22.1":
+  "integrity" "sha512-NTR3f6W7/AWXKw8GSsgSyQcDW6jkslZLH8AiZa5PQ09w1kR8uHtR9rez/E9gAq/o17+p0JYHE8QjF3RoniiObA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/next-auth/-/next-auth-4.22.1.tgz"
+  "version" "4.22.1"
   dependencies:
-    "@babel/runtime" "^7.16.3"
-    "@panva/hkdf" "^1.0.1"
+    "@babel/runtime" "^7.20.13"
+    "@panva/hkdf" "^1.0.2"
     "cookie" "^0.5.0"
-    "jose" "^4.9.3"
+    "jose" "^4.11.4"
     "oauth" "^0.9.15"
-    "openid-client" "^5.1.0"
+    "openid-client" "^5.4.0"
     "preact" "^10.6.3"
     "preact-render-to-string" "^5.1.19"
     "uuid" "^8.3.2"
@@ -2167,6 +2172,11 @@
   "integrity" "sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/node-releases/-/node-releases-2.0.10.tgz"
   "version" "2.0.10"
+
+"nodemailer@^6.6.5", "nodemailer@^6.9.1":
+  "integrity" "sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/nodemailer/-/nodemailer-6.9.1.tgz"
+  "version" "6.9.1"
 
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
@@ -2282,7 +2292,7 @@
     "is-docker" "^2.1.1"
     "is-wsl" "^2.2.0"
 
-"openid-client@^5.1.0":
+"openid-client@^5.4.0":
   "integrity" "sha512-hgJa2aQKcM2hn3eyVtN12tEA45ECjTJPXCgUh5YzTzy9qwapCvmDTVPWOcWVL0d34zeQoQ/hbG9lJhl3AYxJlQ=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/openid-client/-/openid-client-5.4.0.tgz"
   "version" "5.4.0"
